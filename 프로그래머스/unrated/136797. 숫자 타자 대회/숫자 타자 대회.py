@@ -9,10 +9,8 @@ def solution(numbers):
             if a == num or b == num:
                 next_wei[(a,b)] = min(next_wei.get((a,b),INF),v+1)
             else:
-                dis_from_a = calc_dis(*pos_arr[num],*pos_arr[a]) + v
-                dis_from_b = calc_dis(*pos_arr[num],*pos_arr[b]) + v
                 next_wei[(a,num)] = min(next_wei.get((a,num),INF),calc_dis(*pos_arr[num],*pos_arr[b]) + v)
-                next_wei[(b,num)] = min(next_wei.get((b,num),INF),calc_dis(*pos_arr[num],*pos_arr[a]) + v)
+                next_wei[(num,b)] = min(next_wei.get((num,b),INF),calc_dis(*pos_arr[num],*pos_arr[a]) + v)
         wei = next_wei
 
     return min(wei.values())
