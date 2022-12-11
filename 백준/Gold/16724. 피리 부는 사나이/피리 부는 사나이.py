@@ -38,19 +38,5 @@ for i in range(N):
         pos1 = conv_pos(i, j)
         pos2 = conv_pos(ni, nj)
         union(pos1, pos2)
-for i in range(N):
-    for j in range(M):
-        if matrix[i][j] == 'D':
-            ni, nj = i + 1, j
-        if matrix[i][j] == 'L':
-            ni, nj = i, j - 1
-        if matrix[i][j] == 'R':
-            ni, nj = i, j + 1
-        if matrix[i][j] == 'U':
-            ni, nj = i - 1, j
-        pos1 = conv_pos(i, j)
-        pos2 = conv_pos(ni, nj)
-        union(pos1, pos2)
-
-print(len(set(parents)))
-
+        
+print(len(set(map(lambda x: find(x), parents))))
