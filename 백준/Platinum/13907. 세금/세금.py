@@ -13,7 +13,7 @@ for _ in range(M):
     adj_list[b].append((a, c))
 tax = [0]
 for _ in range(K):
-    tax.append(int(input()))
+    tax.append(int(input()) + tax[-1])
 
 
 def dijkstra(start):
@@ -40,12 +40,10 @@ def dijkstra(start):
 
 dist = dijkstra(S)[D]
 
-acc_tax = 0
 answer = []
 for t in tax:
-    acc_tax += t
     min_cost = INF
     for idx, cost in enumerate(dist):
-        min_cost = min(min_cost, cost + idx * acc_tax)
+        min_cost = min(min_cost, cost + idx * t)
     answer.append(min_cost)
 print(*answer, sep='\n')
