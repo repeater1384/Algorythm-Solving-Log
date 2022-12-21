@@ -13,14 +13,6 @@ for _ in range(int(input())):
         b = target - a
         if a > b:
             break
-        s, e = 0, len(primes) - 1
-        while s <= e:
-            m = (s + e) // 2
-            if primes[m] == b:
-                cnt += 1
-                break
-            elif primes[m] > b:
-                e = m - 1
-            else:
-                s = m + 1
+        if is_prime[b]:
+            cnt += 1
     print(cnt)
