@@ -11,6 +11,7 @@ for i in range(N - 1):
     diff_dict[diff] = diff_dict.get(diff, 0) + 1
     rate_dict[rate] = rate_dict.get(rate, 0) + 1
 
+answer = []
 for _ in range(M):
     i, v = map(int, input().split())
     i -= 1
@@ -51,9 +52,11 @@ for _ in range(M):
         diff_dict[diff] = diff_dict.get(diff, 0) + 1
         rate_dict[rate] = rate_dict.get(rate, 0) + 1
 
-    if len(diff_dict.keys()) == 1 and [*diff_dict.keys()][0] > 0:
-        print('+')
-    elif len(rate_dict.keys()) == 1 and 0 < [*rate_dict.keys()][0] == int([*rate_dict.keys()][0]):
-        print('*')
+    if len(diff_dict.keys()) == 1 and arr[1] > arr[0]:
+        answer.append('+')
+    elif len(rate_dict.keys()) == 1 and arr[1] % arr[0] == 0:
+        answer.append('*')
     else:
-        print('?')
+        answer.append('?')
+
+print('\n'.join(answer))
