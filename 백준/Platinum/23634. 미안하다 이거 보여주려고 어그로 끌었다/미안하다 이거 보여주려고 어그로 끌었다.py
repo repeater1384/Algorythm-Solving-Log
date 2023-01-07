@@ -1,9 +1,8 @@
 from collections import deque
 import sys
-sys.setrecursionlimit(200000)
 
-N, M = map(int, input().split())
-matrix = [[*map(int, input())] for _ in range(N)]
+N, M = map(int, sys.stdin.readline().rstrip().split())
+matrix = [[*map(int, sys.stdin.readline().rstrip())] for _ in range(N)]
 dy, dx = [0, 0, -1, 1], [1, -1, 0, 0]
 
 rock_section = [[-1] * M for _ in range(N)]
@@ -75,9 +74,7 @@ def union(x, y):
 
 # 불이 연결되어있는지 확인.
 def is_all_fire_connected():
-    # return len(set(map(lambda x: find(x), parents))) == rock_section_num
-
-    for key, value in rock_fire.items():
+    for value in rock_fire.values():
         if not value:
             continue
         a = find(value[0])
@@ -104,7 +101,6 @@ while True:
         matrix[cy][cx] = 0
         for k in range(4):
             ny, nx = cy + dy[k], cx + dx[k]
-            # 방문 안한 나무를 만남
             if 0 <= ny < N and 0 <= nx < M:
                 if not visited[ny][nx] and matrix[ny][nx] == 1:
                     temp_fire.append((ny, nx))
@@ -114,20 +110,5 @@ while True:
                         fire_section[cy][cx] = fire_section[ny][nx]
                     else:
                         union(fire_section[cy][cx], fire_section[ny][nx])
-            # if 0 <= ny < N and 0 <= nx < M and not visited[ny][nx]:
-            #     if matrix[ny][nx] == 2:
-            #         continue
-            #     if matrix[ny][nx] == 1:
-            #         matrix[ny][nx] = 0
-            #         visited[ny][nx] = True
-            #         fire_section[ny][nx] = fire_section[cy][cx]
-            #         temp_fire.append((ny, nx))
-            #         for k2 in range(4):
-            #             nny, nnx = ny + dy[k2], nx + dx[k2]
-            #             if 0 <= nny < N and 0 <= nnx < M and matrix[nny][nnx] == 0 and fire_section[nny][nnx] != \
-            #                     fire_section[ny][nx]:
-            #                 union(fire_section[ny][nx], fire_section[nny][nnx])
-            #     if matrix[ny][nx] == 0 and fire_section[cy][cx] != fire_section[ny][nx]:
-            #         union(fire_section[cy][cx], fire_section[ny][nx])
     fire = temp_fire
     answer_day += 1
