@@ -1,7 +1,6 @@
 import sys
 
 iuput = sys.stdin.readline
-sys.setrecursionlimit(10 ** 6 + 10)
 
 
 def find(x):
@@ -48,9 +47,8 @@ for i in range(1, N):
         end_x = max(end_x, next_end_x)
         union(idx, next_idx)
 
-answer = []
+answer = ''
 for _ in range(Q):
     a, b = map(lambda x: int(x) - 1, input().split())
-    answer.append(int(is_same_parent(a, b)))
-print(*answer, sep='\n')
-
+    answer += '1\n' if is_same_parent(a, b) else '0\n'
+print(answer)
