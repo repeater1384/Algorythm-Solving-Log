@@ -1,0 +1,1 @@
+a,b=input().split();f=lambda x:int(x[::-1]);print(f(str(f(a)+f(b))))
