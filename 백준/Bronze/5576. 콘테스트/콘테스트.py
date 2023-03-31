@@ -1,0 +1,1 @@
+I=lambda:sum(sorted(int(input())for _ in[0]*10)[7:]);print(I(),I())
