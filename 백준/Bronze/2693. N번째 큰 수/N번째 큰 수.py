@@ -1,0 +1,1 @@
+eval('print(sorted(map(int,input().split()))[7]),'*int(input()))
