@@ -1,0 +1,1 @@
+exec('a=sorted(filter(lambda x:x%2==0,map(int,input().split())));print(sum(a),a[0]);'*int(input()))
