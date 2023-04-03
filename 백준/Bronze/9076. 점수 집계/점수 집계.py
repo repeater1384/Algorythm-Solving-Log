@@ -1,0 +1,1 @@
+exec('a=sorted(map(int,input().split()))[1:4];print("KIN"if a[2]-a[0]>=4else sum(a));'*int(input()))
