@@ -1,0 +1,1 @@
+k=lambda a:(a+2)*a*(a+1)//2;print(k(int(input())))
