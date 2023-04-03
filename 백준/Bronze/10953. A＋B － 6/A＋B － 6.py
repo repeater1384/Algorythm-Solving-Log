@@ -1,0 +1,1 @@
+exec('a,b=map(int,input()[::2]);print(a+b);'*int(input()))
