@@ -1,0 +1,1 @@
+for p in sorted([[*map(int,input().split())]for _ in[0]*int(input())],key=lambda x:(x[1],x[0])):print(*p)
