@@ -1,0 +1,1 @@
+r=0;i=input;exec('s=i();r+=[*s]==sorted(s,key=s.find);'*int(i()));print(r)
