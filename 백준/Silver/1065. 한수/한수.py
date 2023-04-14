@@ -1,0 +1,1 @@
+print(sum(i//100+i%10==i//10%10*2or i<100for i in range(1,int(input())+1)))
