@@ -1,0 +1,1 @@
+A,B;char C[101];main(){scanf("%d%d%s",&A,&B,&C);if(C[strlen(C)-1]%2!=0)A^=B;printf("%d",A);}
