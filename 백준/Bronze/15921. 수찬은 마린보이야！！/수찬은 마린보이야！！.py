@@ -1,0 +1,1 @@
+print('1.00'if input()>'0'else'divide by zero')
