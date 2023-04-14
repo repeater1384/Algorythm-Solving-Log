@@ -1,0 +1,1 @@
+l=[int(input())for i in [0]*10];print(sum(l)//10,max(set(l),key=l.count))
