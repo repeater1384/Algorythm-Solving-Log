@@ -1,0 +1,1 @@
+exec('print(input()[::-1]),'*int(input()[:2]))
